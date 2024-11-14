@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('post_tags', function (Blueprint $table) {
             $table->id('post_tag');
-            $table->integer('post_id');
-            $table->integer('tag_id');
+            $table->foreignId('post_id')->nullable()->index();
+            $table->foreignId('tag_id')->nullable()->index();
         });
     }
 

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,6 @@ class users_table extends Seeder
      */
     public function run(): void
     {
-        //
+        User::factory()->count(5)->create();
     }
 }

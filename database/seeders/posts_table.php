@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use PHPUnit\Framework\Attributes\Group;
 
 class posts_table extends Seeder
 {
@@ -12,6 +15,6 @@ class posts_table extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }
