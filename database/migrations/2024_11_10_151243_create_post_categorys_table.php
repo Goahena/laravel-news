@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('post_categorys', function (Blueprint $table) {
             $table->id('post_category_id');
             $table->integer('post_id');
-            $table->integer('category_id');
+            $table->foreignId('category_id')->nullable()->index();
         });
     }
 

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('medias', function (Blueprint $table) {
             $table->id('media_id');
-            $table->integer('post_id');
-            $table->string('file_path', 150);
-            $table->string('type', 150);
+            $table->foreignId('post_id')->nullable()->index();
+            $table->string('file_path', 150)->nullable();
+            $table->string('type', 150)->nullable();
         });
     }
 
