@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->id('tag_id');
-            $table->string('tag_name', 150)->nullable();
-            $table->string('slug', 150)->nullable();
+            $table->integer('id')->primary();
+            $table->string('tag_name', 150);
+            $table->string('slug', 150);
         });
     }
 

@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medias', function (Blueprint $table) {
-            $table->id('media_id');
-            $table->foreignId('post_id')->nullable()->index();
+            $table->integer('id')->primary();
+            $table->integer('post_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->string('file_path', 150)->nullable();
             $table->string('type', 150)->nullable();
         });
