@@ -15,7 +15,7 @@ return [
     |            "database", "collection", "null"
     |
     */
-
+    'queue' => true,
     'driver' => env('SCOUT_DRIVER', 'algolia'),
 
     /*

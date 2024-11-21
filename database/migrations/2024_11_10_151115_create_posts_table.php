@@ -12,19 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('slug', 150)->nullable();
-            $table->string('title', 150)->nullable();
+            $table->integer('id')->primary();
+            $table->string('slug', 150);
+            $table->string('title', 150);
             $table->text('body');
             $table->integer('views');
             $table->integer('likes');
             $table->integer('dislikes');
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('status', 150);
-            $table->timestamp('published_at')->nullable();
-            $table->timestamp('remove_at')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->string('status', 150)->default(true);
+            $table->timestamp('published_at')->nullable()->useCurrent();
+            $table->timestamp('remove_at')->nullable()->useCurrent();
+            $table->timestamp('created_at')->nullable()->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrent();   
+            $table->foreignId('user_id')->nullable(); 
+            $table->foreignId('category_id')->index();
         });
     }
 

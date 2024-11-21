@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('post_tags', function (Blueprint $table) {
-            $table->id('post_tag');
-            $table->foreignId('post_id')->nullable()->index();
+            $table->integer('post_tag')->primary();
+            $table->integer('post_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreignId('tag_id')->nullable()->index();
         });
     }
